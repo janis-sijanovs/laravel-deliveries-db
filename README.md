@@ -2,9 +2,11 @@
 
 ## Installation
 
-Make sure you have [PHP] (https://www.php.net/downloads.php) and [Composer] (https://getcomposer.org/download/) Installed On the machine.
+Make sure you have [PHP](https://www.php.net/downloads.php) and [Composer](https://getcomposer.org/download/) Installed On the machine.
 
-Alternatively can be run through [Docker] [https://www.docker.com/] 
+Alternatively can be run through [Docker](https://www.docker.com/)
+
+<br>
 
 Clone the repository
 
