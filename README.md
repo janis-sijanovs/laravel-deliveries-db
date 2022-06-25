@@ -58,8 +58,8 @@ The application contains 5 pages:
 
 1. Clients:
 
-The bage is split in two. On the left side there's a table with the clients.
-There are two buttons for each client. One Shows addresses, and the other one Deliveries.
+The page is split in two. On the left side, there's a table with the clients.
+There are two buttons for each client. One shows addresses and the other one deliveries.
 
 When clicking the address button, Client addresses will show up on the right side of the page.
 Page not reloading when displaying addresses is a requirement, so addresses are preloaded,
@@ -70,13 +70,13 @@ This page cannot be accessed with a get request.
 
 2. Deliveries:
 
-This page is split in two too. On the left side there's information about the client.
-On the right side there's a list of all deliveries.
+This page is split in two too. On the left side, there's information about the client.
+On the right side, there's a list of all deliveries.
 
 3. Order Types:
 
 The order types page displays a table with addresses, 
-where both types of delivery ordered.
+where both types of delivery were ordered.
 
 4. Last Delivery:
 
