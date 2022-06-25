@@ -46,7 +46,7 @@ class AddressesController extends Controller
 
         return view('client_addresses', [
             'addresses' => $addresses,
-            'title' => 'Delivery Types',
+            'title' => 'Order Types',
         ]);
     }
 }

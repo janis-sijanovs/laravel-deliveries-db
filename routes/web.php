@@ -24,7 +24,7 @@ Route::post('/clients/{id}/deliveries', [App\Http\Controllers\DeliveriesControll
 
 Route::get('/api/addresses/{id}', [App\Http\Controllers\AddressesController::class, 'getByClientID']);
 
-Route::get('/delivery_types', [App\Http\Controllers\AddressesController::class, 'getAddressesWithMultipleDeliveryTypes']);
+Route::get('/order_types', [App\Http\Controllers\AddressesController::class, 'getAddressesWithMultipleDeliveryTypes']);
 
 Route::get('/inactive_clients', [App\Http\Controllers\AddressesController::class, 'inactiveAddresses']);
 

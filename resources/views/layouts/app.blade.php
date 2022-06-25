@@ -16,7 +16,7 @@
                     <h2 class="navigation__title">{{$title}}</h2>
                 @endif
                 <a class="navigation__link" href="/clients">Clients</a>
-                <a class="navigation__link" href="/delivery_types">Delivery Types</a>
+                <a class="navigation__link" href="/order_types">Order Types</a>
                 <a class="navigation__link" href="/inactive_clients">Inactive Clients</a>
                 <a class="navigation__link" href="/last_deliveries">Last Deliveries</a>
             </nav>
