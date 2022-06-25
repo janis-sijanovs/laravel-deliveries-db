@@ -1,64 +1,92 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Getting started
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Installation
 
-## About Laravel
+Make sure you have [PHP](https://www.php.net/downloads.php) and [Composer](https://getcomposer.org/download/) Installed On the machine.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Alternatively can be run through [Docker](https://www.docker.com/)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<br>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Clone the repository
 
-## Learning Laravel
+    git clone https://github.com/janis-sijanovs/laravel-deliveries-db.git
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Switch to the repo folder
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    cd laravel-deliveries-db
 
-## Laravel Sponsors
+Install all the dependencies using composer
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    composer i
 
-### Premium Partners
+Copy the example env file and make the required configuration changes in the .env file
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+    cp .env.example .env
+    
+Generate a new application key
 
-## Contributing
+    php artisan key:generate
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Run the database migrations (**Set the database connection in .env before migrating**)
+'--seed' will generate dummy data for the database
 
-## Code of Conduct
+    php artisan migrate:fresh --seed
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Start the local development server
 
-## Security Vulnerabilities
+    php artisan serve
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+You can now access the server at http://localhost:8000
 
-## License
+**TL;DR command list**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    git clone https://github.com/janis-sijanovs/laravel-deliveries-db.git
+    cd laravel-deliveries-db
+    composer i
+    cp .env.example .env
+    php artisan key:generate
+    php artisan migrate:fresh --seed
+    php artisan serve
+    
+## About the Project
+    
+This is a Laravel application, that is used to query and display data from a database.
+
+The database contains information about clients, their addresses, deliveries to the client, 
+and routes that will be taken during the deliveries.
+
+The application contains 5 pages:
+
+1. Clients:
+
+The page is split in two. On the left side, there's a table with the clients.
+There are two buttons for each client. One shows addresses and the other one deliveries.
+
+When clicking the address button, Client addresses will show up on the right side of the page.
+Page not reloading when displaying addresses is a requirement, so addresses are preloaded,
+and are switched with VueJS.
+
+When clicking the deliveries button, a post request is sent, and the client deliveries page is opened.
+This page cannot be accessed with a get request.
+
+2. Deliveries:
+
+This page is split in two too. On the left side, there's information about the client.
+On the right side, there's a list of all deliveries.
+
+3. Order Types:
+
+The order types page displays a table with addresses, 
+where both types of delivery were ordered.
+
+4. Last Delivery:
+
+This page displays the last order for every Address.
+
+5. Inactive Clients
+
+This page displays the clients, that have never ordered liquid products.
+
+![LaravelApp](https://user-images.githubusercontent.com/101757160/175757416-2107070f-d314-4243-97cb-b97fcc28ef5b.gif)
+
